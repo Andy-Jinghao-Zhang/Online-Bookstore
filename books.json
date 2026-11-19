@@ -1,0 +1,46 @@
+[
+{
+  "model": "store.book",
+  "pk": 1,
+  "fields": {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "description": "The Great Gatsby is a classic American novel by F. Scott Fitzgerald. It explores themes of wealth, love, and the American Dream in the 1920s.",
+    "price": "9.99",
+    "cover_url": "https://ia802809.us.archive.org/view_archive.php?archive=/18/items/l_covers_0008/l_covers_0008_45.zip&file=0008458093-L.jpg"
+  }
+},
+{
+  "model": "store.book",
+  "pk": 2,
+  "fields": {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "description": "A classic novel about love, marriage, and social class in 19th-century England.",
+    "price": "8.99",
+    "cover_url": "https://ia800100.us.archive.org/view_archive.php?archive=/5/items/l_covers_0012/l_covers_0012_64.zip&file=0012645114-L.jpg"
+  }
+},
+{
+  "model": "store.book",
+  "pk": 3,
+  "fields": {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "description": "A novel about justice, racial inequality, and growing up in the American South.",
+    "price": "11.99",
+    "cover_url": "https://covers.openlibrary.org/b/isbn/0060935464-L.jpg?utm_source=chatgpt.com"
+  }
+},
+{
+  "model": "store.book",
+  "pk": 4,
+  "fields": {
+    "title": "The Catcher in the Rye",
+    "author": "J. D. Salinger",
+    "description": "A coming-of-age novel about a teenager struggling with identity and society.",
+    "price": "9.99",
+    "cover_url": "https://ia800803.us.archive.org/view_archive.php?archive=/17/items/olcovers647/olcovers647-L.zip&file=6470931-L.jpg"
+  }
+}
+]

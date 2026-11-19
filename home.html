@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Bookstore</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #243b53;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            color: #d5e1ea;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .search-form input {
+            flex: 1;
+            min-width: 0;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-form button {
+            background-color: #243b53;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 13px 25px;
+            cursor: pointer;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: white;
+            padding: 22px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .book-cover {
+            height: 180px;
+            width: 100%;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .placeholder {
+            height: 180px;
+            background-color: #e8edf2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #60758a;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .book-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .author {
+            color: #666;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #23734d;
+            font-size: 19px;
+        }
+
+        .detail-link {
+            display: inline-block;
+            background-color: #243b53;
+            color: white;
+            padding: 10px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .detail-link:hover {
+            background-color: #395a78;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Online Bookstore</h1>
+        <p>Discover your next favorite book</p>
+    </header>
+
+    <main>
+
+        <form class="search-form" method="get">
+            <input
+                type="text"
+                name="search"
+                placeholder="Search by title or author..."
+                value="{{ query }}"
+            >
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>Available Books</h2>
+
+        <div class="book-grid">
+
+            {% for book in books %}
+
+            <div class="book-card">
+
+                {% if book.cover_url %}
+                    <img
+                        class="book-cover"
+                        src="{{ book.cover_url }}"
+                        alt="{{ book.title }}"
+                    >
+                {% else %}
+                    <div class="placeholder">
+                        Book Cover
+                    </div>
+                {% endif %}
+
+                <h3>{{ book.title }}</h3>
+
+                <p class="author">
+                    By {{ book.author }}
+                </p>
+
+                <p class="price">
+                    ${{ book.price }}
+                </p>
+
+                <a
+                    class="detail-link"
+                    href="{% url 'book_detail' book.id %}"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+            {% empty %}
+
+                <p>No books found.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+</body>
+</html>
